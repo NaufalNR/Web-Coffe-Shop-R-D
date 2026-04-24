@@ -1,0 +1,2194 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuvara Coffee — Temukan Momen Terbaikmu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --green-deep: #1e3932;
+        --green-mid: #00704a;
+        --green-light: #d4e9e2;
+        --green-pale: #eaf4ee;
+        --cream: #fff8f0;
+        --cream-dark: #f2ead9;
+        --gold: #cba135;
+        --gold-light: #f5e6c0;
+        --brown: #4a2c2a;
+        --text-dark: #1a1a1a;
+        --text-mid: #4a4a4a;
+        --text-light: #7a7a7a;
+        --white: #ffffff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--white);
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+
+      /* ── NAVBAR ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: var(--green-deep);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3rem;
+        height: 72px;
+        transition: box-shadow 0.3s;
+      }
+      nav.scrolled {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .logo-circle {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--green-deep);
+        letter-spacing: -1px;
+      }
+      .logo-text {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: 0.5px;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 100%;
+        height: 2px;
+        background: var(--gold);
+        transition: right 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+      .nav-links a:hover::after {
+        right: 0;
+      }
+      .nav-cta {
+        background: var(--gold);
+        color: var(--green-deep) !important;
+        padding: 10px 22px;
+        border-radius: 50px;
+        font-weight: 600 !important;
+        font-size: 13px !important;
+        transition:
+          background 0.2s,
+          transform 0.2s !important;
+      }
+      .nav-cta:hover {
+        background: #e0b545 !important;
+        transform: scale(1.04);
+      }
+      .nav-cta::after {
+        display: none !important;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: white;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        background: var(--green-deep);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 72px;
+      }
+      .hero-bg-circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.06;
+        background: var(--gold);
+      }
+      .hero-bg-circle.c1 {
+        width: 700px;
+        height: 700px;
+        top: -200px;
+        right: -200px;
+      }
+      .hero-bg-circle.c2 {
+        width: 400px;
+        height: 400px;
+        bottom: -100px;
+        left: -100px;
+      }
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        width: 100%;
+      }
+      .hero-text {
+        animation: fadeUp 0.9s ease both;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(203, 161, 53, 0.18);
+        border: 1px solid rgba(203, 161, 53, 0.4);
+        color: var(--gold);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 5vw, 4.2rem);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.15;
+        margin-bottom: 1.5rem;
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .hero-desc {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+        max-width: 460px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--gold);
+        color: var(--green-deep);
+        padding: 14px 32px;
+        border-radius: 50px;
+        border: none;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-primary:hover {
+        background: #e0b545;
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--white);
+        padding: 14px 32px;
+        border-radius: 50px;
+        border: 1.5px solid rgba(255, 255, 255, 0.4);
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+      }
+      .btn-outline:hover {
+        border-color: white;
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-2px);
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .stat-item {
+      }
+      .stat-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+      }
+      .stat-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 2px;
+      }
+      .hero-visual {
+        animation: fadeUp 0.9s 0.2s ease both;
+        display: flex;
+        justify-content: center;
+      }
+      .hero-card-stack {
+        position: relative;
+        width: 380px;
+        height: 480px;
+      }
+      .drink-card {
+        position: absolute;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4);
+      }
+      .drink-card.main {
+        width: 280px;
+        height: 380px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+      }
+      .drink-card.accent1 {
+        width: 160px;
+        height: 200px;
+        right: 0;
+        top: 0;
+        background: var(--gold-light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .drink-card.accent2 {
+        width: 140px;
+        height: 180px;
+        left: 0;
+        bottom: 10px;
+        background: var(--green-light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .drink-icon {
+        font-size: 64px;
+        margin-bottom: 12px;
+      }
+      .drink-name {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--green-deep);
+      }
+      .drink-price {
+        font-size: 13px;
+        color: var(--green-mid);
+        font-weight: 600;
+        margin-top: 4px;
+      }
+      .drink-icon-sm {
+        font-size: 36px;
+      }
+      .drink-name-sm {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--green-deep);
+        margin-top: 6px;
+      }
+      .floating-badge {
+        position: absolute;
+        background: var(--green-mid);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        box-shadow: 0 8px 24px rgba(0, 112, 74, 0.4);
+        animation: float 3s ease-in-out infinite;
+      }
+      .floating-badge.b1 {
+        top: 20px;
+        left: 10px;
+      }
+      .floating-badge.b2 {
+        bottom: 20px;
+        right: 0;
+        animation-delay: 1.5s;
+      }
+
+      /* ── PROMO STRIP ── */
+      .promo-strip {
+        background: var(--gold);
+        padding: 14px 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        overflow: hidden;
+      }
+      .promo-text {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--green-deep);
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+      }
+      .promo-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--green-deep);
+        opacity: 0.4;
+        flex-shrink: 0;
+      }
+
+      /* ── SECTION COMMONS ── */
+      section {
+        padding: 100px 0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+      .section-label {
+        display: inline-block;
+        color: var(--green-mid);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        font-weight: 700;
+        color: var(--green-deep);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .section-title em {
+        font-style: italic;
+        color: var(--green-mid);
+      }
+      .section-desc {
+        color: var(--text-mid);
+        font-size: 16px;
+        line-height: 1.8;
+        max-width: 560px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-center .section-desc {
+        margin: 0 auto;
+      }
+
+      /* ── MENU ── */
+      .menu-section {
+        background: var(--cream);
+      }
+      .menu-header {
+        margin-bottom: 3.5rem;
+      }
+      .menu-tabs {
+        display: flex;
+        gap: 0;
+        margin-top: 2.5rem;
+        background: var(--cream-dark);
+        border-radius: 50px;
+        padding: 6px;
+        width: fit-content;
+      }
+      .tab-btn {
+        padding: 10px 24px;
+        border-radius: 50px;
+        border: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.25s;
+        background: transparent;
+        color: var(--text-mid);
+      }
+      .tab-btn.active {
+        background: var(--green-deep);
+        color: white;
+      }
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      .menu-card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: pointer;
+      }
+      .menu-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 48px rgba(30, 57, 50, 0.15);
+      }
+      .menu-card-img {
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .menu-card-img .bg-circle {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        opacity: 0.12;
+      }
+      .menu-card-body {
+        padding: 1.25rem;
+      }
+      .menu-tag {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 50px;
+        margin-bottom: 8px;
+      }
+      .tag-hot {
+        background: #fde8d0;
+        color: #b5460f;
+      }
+      .tag-cold {
+        background: #d0eaf8;
+        color: #0f5b8a;
+      }
+      .tag-new {
+        background: #d4e9e2;
+        color: #00704a;
+      }
+      .tag-food {
+        background: var(--gold-light);
+        color: #7a5e00;
+      }
+      .menu-card-name {
+        font-family: "Playfair Display", serif;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--green-deep);
+        margin-bottom: 4px;
+      }
+      .menu-card-desc {
+        font-size: 12px;
+        color: var(--text-light);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .menu-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .menu-price {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--green-mid);
+      }
+      .add-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: none;
+        background: var(--green-deep);
+        color: white;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .add-btn:hover {
+        background: var(--green-mid);
+        transform: scale(1.1);
+      }
+
+      /* ── ABOUT ── */
+      .about-section {
+        background: var(--white);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+      .about-visual {
+        position: relative;
+      }
+      .about-img-main {
+        width: 100%;
+        height: 480px;
+        border-radius: 24px;
+        background: linear-gradient(135deg, var(--green-deep) 0%, #2d5a4e 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-img-main::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+      .about-icon-big {
+        font-size: 120px;
+        position: relative;
+        z-index: 1;
+      }
+      .about-float-card {
+        position: absolute;
+        background: white;
+        border-radius: 16px;
+        padding: 16px 20px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+      }
+      .about-float-card.fc1 {
+        bottom: -20px;
+        left: -20px;
+      }
+      .about-float-card.fc2 {
+        top: 40px;
+        right: -30px;
+      }
+      .fc-label {
+        font-size: 11px;
+        color: var(--text-light);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .fc-value {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--green-deep);
+      }
+      .about-text .section-title {
+        margin-bottom: 1.5rem;
+      }
+      .about-text .section-desc {
+        margin-bottom: 2rem;
+      }
+      .about-values {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .value-item {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .value-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: var(--green-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .value-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--green-deep);
+        margin-bottom: 2px;
+      }
+      .value-desc {
+        font-size: 12px;
+        color: var(--text-light);
+        line-height: 1.5;
+      }
+
+      /* ── FEATURED BANNER ── */
+      .featured-banner {
+        background: var(--green-deep);
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .featured-banner::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: rgba(203, 161, 53, 0.08);
+        right: -150px;
+        top: -150px;
+      }
+      .featured-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .featured-tag {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--green-deep);
+        padding: 4px 14px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .featured-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .featured-title em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .featured-desc {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .featured-price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+      }
+      .featured-price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .featured-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .featured-cup {
+        width: 240px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 120px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: float 4s ease-in-out infinite;
+      }
+      .featured-dots {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        right: 20px;
+      }
+      .fdot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .fdot.active {
+        background: var(--gold);
+      }
+
+      /* ── REWARDS ── */
+      .rewards-section {
+        background: var(--cream);
+      }
+      .rewards-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        margin-top: 3rem;
+      }
+      .reward-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .reward-step {
+        display: flex;
+        gap: 1.25rem;
+        align-items: flex-start;
+        padding: 1.5rem;
+        border-radius: 16px;
+        background: white;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .reward-step:hover {
+        transform: translateX(6px);
+        box-shadow: 0 8px 32px rgba(30, 57, 50, 0.1);
+      }
+      .step-num {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--green-deep);
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .step-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--green-deep);
+        margin-bottom: 4px;
+      }
+      .step-desc {
+        font-size: 13px;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+      .reward-card {
+        background: var(--green-deep);
+        border-radius: 28px;
+        padding: 2.5rem;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+      .reward-card::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(203, 161, 53, 0.1);
+        bottom: -100px;
+        right: -80px;
+      }
+      .reward-card-icon {
+        font-size: 48px;
+        margin-bottom: 1.5rem;
+      }
+      .reward-card-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--gold);
+      }
+      .reward-card-desc {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+      .reward-perks {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 2rem;
+      }
+      .perk-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .perk-check {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 11px;
+        color: var(--green-deep);
+        font-weight: 700;
+      }
+
+      /* ── TESTIMONIALS ── */
+      .testimonials-section {
+        background: var(--white);
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3.5rem;
+      }
+      .testimonial-card {
+        background: var(--cream);
+        border-radius: 20px;
+        padding: 2rem;
+        position: relative;
+        transition: transform 0.3s;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+      }
+      .testimonial-card.featured {
+        background: var(--green-deep);
+      }
+      .quote-mark {
+        font-family: "Playfair Display", serif;
+        font-size: 60px;
+        line-height: 1;
+        color: var(--green-light);
+        margin-bottom: -10px;
+      }
+      .testimonial-card.featured .quote-mark {
+        color: rgba(255, 255, 255, 0.15);
+      }
+      .testimonial-text {
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--text-mid);
+        margin-bottom: 1.5rem;
+        font-style: italic;
+      }
+      .testimonial-card.featured .testimonial-text {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .author-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+        flex-shrink: 0;
+      }
+      .author-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--green-deep);
+      }
+      .testimonial-card.featured .author-name {
+        color: white;
+      }
+      .author-loc {
+        font-size: 12px;
+        color: var(--text-light);
+      }
+      .testimonial-card.featured .author-loc {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .stars {
+        color: var(--gold);
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      /* ── LOCATIONS ── */
+      .locations-section {
+        background: var(--green-pale);
+      }
+      .locations-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 3.5rem;
+      }
+      .location-card {
+        background: white;
+        border-radius: 20px;
+        padding: 1.75rem;
+        display: flex;
+        gap: 1rem;
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+      .location-card:hover {
+        box-shadow: 0 16px 40px rgba(30, 57, 50, 0.12);
+        transform: translateY(-4px);
+      }
+      .loc-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: var(--green-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+      .loc-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--green-deep);
+        margin-bottom: 4px;
+      }
+      .loc-address {
+        font-size: 12px;
+        color: var(--text-light);
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
+      .loc-hours {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--green-mid);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .loc-status {
+        display: inline-block;
+        background: #d4e9e2;
+        color: var(--green-mid);
+        padding: 2px 10px;
+        border-radius: 50px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-top: 4px;
+      }
+
+      /* ── NEWSLETTER ── */
+      .newsletter-section {
+        background: var(--gold);
+        padding: 80px 0;
+      }
+      .newsletter-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3rem;
+      }
+      .newsletter-text .section-title {
+        color: var(--green-deep);
+      }
+      .newsletter-text p {
+        color: rgba(30, 57, 50, 0.75);
+        font-size: 15px;
+        line-height: 1.7;
+        margin-top: 0.75rem;
+      }
+      .newsletter-form {
+        display: flex;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+      .newsletter-input {
+        padding: 14px 20px;
+        border-radius: 50px;
+        border: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        width: 280px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--text-dark);
+      }
+      .newsletter-input::placeholder {
+        color: var(--text-light);
+      }
+      .btn-dark {
+        background: var(--green-deep);
+        color: white;
+        padding: 14px 28px;
+        border-radius: 50px;
+        border: none;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        font-family: "Poppins", sans-serif;
+      }
+      .btn-dark:hover {
+        background: #162c26;
+        transform: translateY(-2px);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--green-deep);
+        color: white;
+        padding: 64px 0 32px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+      .footer-brand .logo-text-f {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .footer-brand p {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 13px;
+        line-height: 1.8;
+        max-width: 260px;
+        margin-bottom: 1.5rem;
+      }
+      .social-links {
+        display: flex;
+        gap: 12px;
+      }
+      .social-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 16px;
+        color: white;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .social-btn:hover {
+        background: var(--gold);
+        transform: translateY(-3px);
+      }
+      .footer-col h4 {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.25rem;
+      }
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        font-size: 13px;
+        transition: color 0.2s;
+      }
+      .footer-col ul li a:hover {
+        color: white;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-bottom p {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .footer-bottom-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-bottom-links a {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-bottom-links a:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 960px) {
+        .hero-content,
+        .about-grid,
+        .featured-content,
+        .rewards-grid,
+        .newsletter-content {
+          grid-template-columns: 1fr;
+        }
+        .hero-visual {
+          display: none;
+        }
+        .testimonials-grid,
+        .locations-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-float-card.fc2 {
+          right: 10px;
+        }
+        .newsletter-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .newsletter-form {
+          flex-direction: column;
+          width: 100%;
+        }
+        .newsletter-input {
+          width: 100%;
+        }
+      }
+      @media (max-width: 640px) {
+        nav {
+          padding: 0 1.25rem;
+        }
+        .container {
+          padding: 0 1.25rem;
+        }
+        section {
+          padding: 64px 0;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .testimonials-grid,
+        .locations-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .menu-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-values {
+          grid-template-columns: 1fr;
+        }
+        .hero-stats {
+          gap: 1.5rem;
+        }
+        .promo-strip {
+          gap: 1rem;
+        }
+        .promo-dot {
+          display: none;
+        }
+      }
+
+      /* ── TOAST ── */
+      .toast {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(120px);
+        background: var(--green-deep);
+        color: white;
+        padding: 14px 24px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        z-index: 9999;
+        white-space: nowrap;
+      }
+      .toast.show {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* ── CART BADGE ── */
+      .cart-wrapper {
+        position: relative;
+      }
+      .cart-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: var(--gold);
+        color: var(--green-deep);
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        font-size: 10px;
+        font-weight: 700;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .cart-badge.show {
+        display: flex;
+      }
+      .nav-cart {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-size: 20px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .nav-cart:hover {
+        transform: scale(1.15);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAVBAR ── -->
+    <nav id="navbar">
+      <a href="#" class="nav-logo">
+        <div class="logo-circle">N</div>
+        <span class="logo-text">R & D</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="#reward">Reward</a></li>
+        <li><a href="#lokasi">Lokasi</a></li>
+        <li>
+          <div class="cart-wrapper">
+            <a class="nav-cart" id="cartBtn" title="Keranjang">🛒</a>
+            <div class="cart-badge" id="cartBadge">0</div>
+          </div>
+        </li>
+        <li><a href="#menu" class="nav-cta">Pesan Sekarang</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="beranda">
+      <div class="hero-bg-circle c1"></div>
+      <div class="hero-bg-circle c2"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">☕ Surabaya's Finest Coffee</div>
+          <h1 class="hero-title">
+            Temukan <em>Momen</em><br />Terbaikmu di Sini
+          </h1>
+          <p class="hero-desc">
+            Dari pilihan kopi arabika terbaik hingga minuman signature kami —
+            setiap tegukan dirancang untuk menjadi bagian dari harimu.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn-primary">☕ Lihat Menu</a>
+            <a href="#tentang" class="btn-outline">Cerita Kami</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">12+</div>
+              <div class="stat-label">Gerai Aktif</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">50K+</div>
+              <div class="stat-label">Pelanggan Setia</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">4.9★</div>
+              <div class="stat-label">Rating Rata-rata</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card-stack">
+            <div class="floating-badge b1">✨ Baru Hadir!</div>
+            <div class="drink-card accent1">
+              <div class="drink-icon-sm">🧋</div>
+              <div class="drink-name-sm">Matcha Latte</div>
+            </div>
+            <div class="drink-card main">
+              <div style="position: relative; z-index: 1">
+                <div class="drink-icon">☕</div>
+                <div class="drink-name">Nuvara Signature</div>
+                <div class="drink-price">Rp 52.000</div>
+                <div
+                  style="
+                    margin-top: 16px;
+                    background: var(--green-pale);
+                    padding: 10px 16px;
+                    border-radius: 50px;
+                    font-size: 11px;
+                    font-weight: 600;
+                    color: var(--green-mid);
+                  "
+                >
+                  ⭐ Best Seller
+                </div>
+              </div>
+            </div>
+            <div class="drink-card accent2">
+              <div class="drink-icon-sm">🍵</div>
+              <div class="drink-name-sm">Green Tea</div>
+            </div>
+            <div class="floating-badge b2">🏆 #1 di Surabaya</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROMO STRIP ── -->
+    <div class="promo-strip">
+      <span class="promo-text"
+        >🎉 Daftar Nuvara Rewards & dapatkan minuman gratis pertama!</span
+      >
+      <div class="promo-dot"></div>
+      <span class="promo-text"
+        >✨ Seasonal Special: Iced Brown Sugar Oat Latte — Rp 45.000</span
+      >
+      <div class="promo-dot"></div>
+      <span class="promo-text"
+        >🚀 Order via app & nikmati gratis ongkir setiap hari</span
+      >
+    </div>
+
+    <!-- ── MENU ── -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="menu-header reveal">
+          <span class="section-label">☕ Menu Kami</span>
+          <h2 class="section-title">
+            Dibuat dengan Cinta,<br /><em>Disajikan dengan Hati</em>
+          </h2>
+          <p class="section-desc">
+            Setiap minuman kami menggunakan bahan pilihan premium yang diracik
+            oleh barista berpengalaman kami.
+          </p>
+          <div class="menu-tabs" id="menuTabs">
+            <button class="tab-btn active" data-cat="semua">Semua</button>
+            <button class="tab-btn" data-cat="coffee">Coffee</button>
+            <button class="tab-btn" data-cat="non-coffee">Non-Coffee</button>
+            <button class="tab-btn" data-cat="food">Makanan</button>
+          </div>
+        </div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section class="about-section" id="tentang">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <div class="about-img-main">
+              <div class="about-icon-big">☕</div>
+            </div>
+            <div class="about-float-card fc1">
+              <div class="fc-label">Biji Kopi Premium</div>
+              <div class="fc-value">100% Arabika</div>
+            </div>
+            <div class="about-float-card fc2">
+              <div class="fc-label">Berdiri Sejak</div>
+              <div class="fc-value">2018</div>
+            </div>
+          </div>
+          <div class="about-text reveal">
+            <span class="section-label">💚 Cerita Kami</span>
+            <h2 class="section-title">
+              Lebih dari Sekedar<br /><em>Secangkir Kopi</em>
+            </h2>
+            <p class="section-desc">
+              Nuvara Coffee lahir dari sebuah mimpi sederhana: menciptakan
+              tempat di mana setiap orang bisa menemukan momen terbaiknya. Kami
+              percaya bahwa kopi yang baik bukan hanya soal rasa, melainkan
+              tentang pengalaman yang menyeluruh.
+            </p>
+            <p class="section-desc" style="margin-top: 1rem">
+              Dengan biji arabika pilihan dari Gayo, Toraja, dan Flores, kami
+              memastikan setiap cangkir yang tersaji adalah yang terbaik dari
+              negeri ini.
+            </p>
+            <div class="about-values">
+              <div class="value-item">
+                <div class="value-icon">🌱</div>
+                <div>
+                  <div class="value-title">Berkelanjutan</div>
+                  <div class="value-desc">
+                    Bermitra langsung dengan petani kopi lokal Indonesia.
+                  </div>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon">👨‍🍳</div>
+                <div>
+                  <div class="value-title">Barista Terlatih</div>
+                  <div class="value-desc">
+                    Tim kami tersertifikasi SCA Internasional.
+                  </div>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon">♻️</div>
+                <div>
+                  <div class="value-title">Ramah Lingkungan</div>
+                  <div class="value-desc">
+                    Cup & sedotan 100% biodegradable.
+                  </div>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon">🏆</div>
+                <div>
+                  <div class="value-title">Kualitas Terjamin</div>
+                  <div class="value-desc">
+                    Standar kualitas ketat di setiap gerai.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURED BANNER ── -->
+    <div class="featured-banner">
+      <div class="container">
+        <div class="featured-content">
+          <div class="reveal">
+            <span class="featured-tag">✨ Seasonal Special</span>
+            <h2 class="featured-title">
+              Brown Sugar<br /><em>Oat Shaken Espresso</em>
+            </h2>
+            <p class="featured-desc">
+              Perpaduan sempurna antara espresso bold, brown sugar hangat, dan
+              oat milk yang lembut. Diminum dingin untuk pengalaman terbaik.
+            </p>
+            <div class="featured-price">Rp 52.000 <span>/ cup</span></div>
+            <a href="#menu" class="btn-primary">🛒 Pesan Sekarang</a>
+          </div>
+          <div class="featured-visual reveal">
+            <div class="featured-cup">🥤</div>
+            <div class="featured-dots">
+              <div class="fdot active"></div>
+              <div class="fdot"></div>
+              <div class="fdot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── REWARDS ── -->
+    <section class="rewards-section" id="reward">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-label">🌟 Program Loyalitas</span>
+          <h2 class="section-title">Nuvara <em>Rewards</em></h2>
+          <p class="section-desc">
+            Setiap tegukan membawa kamu lebih dekat ke minuman gratis.
+            Bergabunglah dan nikmati keistimewaan menjadi bagian keluarga
+            Nuvara.
+          </p>
+        </div>
+        <div class="rewards-grid">
+          <div class="reward-steps reveal">
+            <div class="reward-step">
+              <div class="step-num">1</div>
+              <div>
+                <div class="step-title">Daftar Gratis</div>
+                <div class="step-desc">
+                  Buat akun Nuvara Rewards dalam 30 detik. Gratis, tanpa biaya
+                  apapun.
+                </div>
+              </div>
+            </div>
+            <div class="reward-step">
+              <div class="step-num">2</div>
+              <div>
+                <div class="step-title">Kumpulkan Bintang</div>
+                <div class="step-desc">
+                  Dapatkan 1 bintang untuk setiap Rp 5.000 yang kamu belanjakan
+                  di Nuvara.
+                </div>
+              </div>
+            </div>
+            <div class="reward-step">
+              <div class="step-num">3</div>
+              <div>
+                <div class="step-title">Tukar Reward</div>
+                <div class="step-desc">
+                  Kumpulkan 150 bintang dan tukarkan dengan minuman pilihanmu
+                  secara gratis!
+                </div>
+              </div>
+            </div>
+            <div class="reward-step">
+              <div class="step-num">4</div>
+              <div>
+                <div class="step-title">Nikmati Eksklusif</div>
+                <div class="step-desc">
+                  Member Gold & Platinum mendapatkan akses early access produk
+                  baru & undangan event khusus.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="reward-card">
+              <div class="reward-card-icon">⭐</div>
+              <div class="reward-card-title">R & D Rewards</div>
+              <div class="reward-card-desc">
+                Bergabunglah dengan lebih dari 50.000 member aktif yang
+                menikmati berbagai keistimewaan eksklusif setiap harinya.
+              </div>
+              <div class="reward-perks">
+                <div class="perk-item">
+                  <div class="perk-check">✓</div>
+                  Minuman gratis ulang tahun
+                </div>
+                <div class="perk-item">
+                  <div class="perk-check">✓</div>
+                  Double star setiap Rabu
+                </div>
+                <div class="perk-item">
+                  <div class="perk-check">✓</div>
+                  Akses menu baru lebih awal
+                </div>
+                <div class="perk-item">
+                  <div class="perk-check">✓</div>
+                  Diskon 20% setiap pembelian ke-5
+                </div>
+                <div class="perk-item">
+                  <div class="perk-check">✓</div>
+                  Gratis upgrade size minuman
+                </div>
+              </div>
+              <a
+                href="#"
+                class="btn-primary"
+                style="width: 100%; justify-content: center"
+                >🌟 Daftar Sekarang — Gratis</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIALS ── -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-label">💬 Kata Mereka</span>
+          <h2 class="section-title">Pelanggan Kami <em>Berbicara</em></h2>
+        </div>
+        <div class="testimonials-grid reveal">
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">
+              Nuvara Coffee adalah tempat favoritku untuk kerja. WiFi kencang,
+              kopi enak, dan suasana yang tenang. Nuvara Signature Latte-nya
+              juara banget!
+            </p>
+            <div class="testimonial-author">
+              <div
+                class="author-avatar"
+                style="background: #d4e9e2; color: #00704a"
+              >
+                AR
+              </div>
+              <div>
+                <div class="author-name">Anisa Rahma</div>
+                <div class="author-loc">Surabaya Pusat</div>
+                <div class="stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card featured">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">
+              Sudah 3 tahun jadi pelanggan Nuvara. Konsistensi rasa kopinya luar
+              biasa. Barista-nya ramah dan tempatnya selalu bersih. Terbaik!
+            </p>
+            <div class="testimonial-author">
+              <div
+                class="author-avatar"
+                style="background: rgba(203, 161, 53, 0.2); color: var(--gold)"
+              >
+                BP
+              </div>
+              <div>
+                <div class="author-name">Budi Pratama</div>
+                <div class="author-loc">Nuvara Rewards Gold Member</div>
+                <div class="stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">
+              Brown Sugar Oat Latte-nya bikin nagih! Setiap pagi harus mampir
+              dulu ke Nuvara sebelum masuk kantor. Program Rewards-nya juga
+              sangat menguntungkan.
+            </p>
+            <div class="testimonial-author">
+              <div
+                class="author-avatar"
+                style="background: #fde8d0; color: #b5460f"
+              >
+                DL
+              </div>
+              <div>
+                <div class="author-name">Dewi Lestari</div>
+                <div class="author-loc">Surabaya Timur</div>
+                <div class="stars">★★★★★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LOCATIONS ── -->
+    <section class="locations-section" id="lokasi">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-label">📍 Temukan Kami</span>
+          <h2 class="section-title">Gerai <em>Nuvara</em> Terdekat</h2>
+          <p class="section-desc">
+            Kami hadir di berbagai sudut kota untuk menemani momen terbaikmu.
+          </p>
+        </div>
+        <div class="locations-grid reveal">
+          <div class="location-card">
+            <div class="loc-icon">🏙️</div>
+            <div>
+              <div class="loc-name">Nuvara Tunjungan Plaza</div>
+              <div class="loc-address">
+                Jl. Basuki Rahmat No.8-12, Lantai GF, Surabaya Pusat
+              </div>
+              <div class="loc-hours">06:30 – 22:00</div>
+              <div class="loc-status">● Buka Sekarang</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🌿</div>
+            <div>
+              <div class="loc-name">Nuvara Pakuwon Mall</div>
+              <div class="loc-address">
+                Jl. Puncak Indah Lontar, Lakarsantri, Surabaya Barat
+              </div>
+              <div class="loc-hours">07:00 – 22:00</div>
+              <div class="loc-status">● Buka Sekarang</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🎓</div>
+            <div>
+              <div class="loc-name">Nuvara MERR</div>
+              <div class="loc-address">
+                Jl. Ir. Soekarno No.45, Sukolilo, Surabaya Timur
+              </div>
+              <div class="loc-hours">06:00 – 23:00</div>
+              <div class="loc-status">● Buka Sekarang</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🏖️</div>
+            <div>
+              <div class="loc-name">Nuvara Citraland</div>
+              <div class="loc-address">
+                Jl. Bukit Darmo Boulevard, Pradah Kalikendal, Surabaya
+              </div>
+              <div class="loc-hours">07:00 – 22:00</div>
+              <div class="loc-status">● Buka Sekarang</div>
+            </div>
+          </div>
+          <div class="location-card">
+            <div class="loc-icon">🏢</div>
+            <div>
+              <div class="loc-name">Nuvara Kenjeran Park</div>
+              <div class="loc-address">
+                Jl. Kenjeran No.1, Bulak, Surabaya Utara
+              </div>
+              <div class="loc-hours">07:00 – 21:00</div>
+              <div class="loc-status">● Buka Sekarang</div>
+            </div>
+          </div>
+          <div
+            class="location-card"
+            style="
+              align-items: center;
+              justify-content: center;
+              border: 2px dashed var(--green-light);
+              cursor: pointer;
+              flex-direction: column;
+              text-align: center;
+              gap: 8px;
+            "
+          >
+            <div style="font-size: 32px">➕</div>
+            <div
+              style="font-size: 14px; font-weight: 600; color: var(--green-mid)"
+            >
+              Lihat Semua Gerai
+            </div>
+            <div style="font-size: 12px; color: var(--text-light)">
+              12+ gerai aktif di Surabaya
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NEWSLETTER ── -->
+    <div class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-content">
+          <div class="newsletter-text">
+            <h2 class="section-title" style="font-size: 2rem">
+              Jangan Lewatkan<br />Promo Terbaru
+            </h2>
+            <p>
+              Daftar newsletter kami dan dapatkan notifikasi pertama untuk promo
+              eksklusif, menu baru, dan event spesial Nuvara Coffee.
+            </p>
+          </div>
+          <div class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Masukkan email kamu..."
+              id="emailInput"
+            />
+            <button class="btn-dark" onclick="subscribeNewsletter()">
+              Daftar Sekarang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 1rem;
+              "
+            >
+              <div class="logo-circle">N</div>
+              <span class="logo-text-f">Nuvara Coffee</span>
+            </div>
+            <p>
+              Menciptakan pengalaman kopi terbaik untuk setiap momen berhargamu.
+              Dibuat dengan cinta, disajikan dengan hati.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-btn" title="Instagram">📷</a>
+              <a href="#" class="social-btn" title="TikTok">🎵</a>
+              <a href="#" class="social-btn" title="Twitter">🐦</a>
+              <a href="#" class="social-btn" title="Facebook">📘</a>
+              <a href="#" class="social-btn" title="YouTube">▶️</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Menu</h4>
+            <ul>
+              <li><a href="#">Hot Coffee</a></li>
+              <li><a href="#">Cold Brew</a></li>
+              <li><a href="#">Non-Coffee</a></li>
+              <li><a href="#">Makanan</a></li>
+              <li><a href="#">Seasonal Special</a></li>
+              <li><a href="#">Merchandise</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Tentang</h4>
+            <ul>
+              <li><a href="#">Cerita Kami</a></li>
+              <li><a href="#">Karir</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Bantuan</h4>
+            <ul>
+              <li><a href="#">Hubungi Kami</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Nuvara Rewards</a></li>
+              <li><a href="#">Franchise</a></li>
+              <li><a href="#">Gift Card</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Nuvara Coffee. Hak cipta dilindungi undang-undang.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">Cookie</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ── TOAST ── -->
+    <div class="toast" id="toast">🛒 Ditambahkan ke keranjang!</div>
+
+    <script>
+      const menuItems = [
+        {
+          name: "Signature Latte",
+          desc: "Espresso bold dengan susu oat creamy dan vanilla. Ikon kami.",
+          price: "Rp 52.000",
+          cat: "coffee",
+          tag: "hot",
+          tagLabel: "HOT",
+          icon: "☕",
+          bg: "#D4E9E2",
+        },
+        {
+          name: "Brown Sugar Oat Espresso",
+          desc: "Shaken espresso dengan brown sugar syrup dan oat milk segar.",
+          price: "Rp 48.000",
+          cat: "coffee",
+          tag: "new",
+          tagLabel: "NEW",
+          icon: "🥤",
+          bg: "#F5E6C0",
+        },
+        {
+          name: "Cold Brew Reserve",
+          desc: "Kopi cold brew premium single origin Gayo, diseduh 18 jam.",
+          price: "Rp 55.000",
+          cat: "coffee",
+          tag: "cold",
+          tagLabel: "COLD",
+          icon: "🧊",
+          bg: "#D0EAF8",
+        },
+        {
+          name: "Caramel Macchiato",
+          desc: "Vanilla steamed milk dengan espresso dan drizzle karamel manis.",
+          price: "Rp 50.000",
+          cat: "coffee",
+          tag: "hot",
+          tagLabel: "HOT",
+          icon: "☕",
+          bg: "#FDE8D0",
+        },
+        {
+          name: "Iced Matcha Latte",
+          desc: "Matcha grade A dari Jepang dengan susu segar pilihan.",
+          price: "Rp 45.000",
+          cat: "non-coffee",
+          tag: "cold",
+          tagLabel: "COLD",
+          icon: "🍵",
+          bg: "#D4E9E2",
+        },
+        {
+          name: "Taro Milk Tea",
+          desc: "Taro Thailand premium dengan pearl tapioka dan brown sugar.",
+          price: "Rp 42.000",
+          cat: "non-coffee",
+          tag: "new",
+          tagLabel: "NEW",
+          icon: "🧋",
+          bg: "#EDE0F5",
+        },
+        {
+          name: "Croissant Butter",
+          desc: "Croissant renyah dengan mentega Prancis, panggang sempurna.",
+          price: "Rp 32.000",
+          cat: "food",
+          tag: "food",
+          tagLabel: "FOOD",
+          icon: "🥐",
+          bg: "var(--gold-light)",
+        },
+        {
+          name: "Avocado Toast",
+          desc: "Sourdough panggang dengan alpukat segar, telur, dan microgreens.",
+          price: "Rp 45.000",
+          cat: "food",
+          tag: "food",
+          tagLabel: "FOOD",
+          icon: "🥑",
+          bg: "#D4E9E2",
+        },
+      ];
+
+      const tagMap = {
+        hot: "tag-hot",
+        cold: "tag-cold",
+        new: "tag-new",
+        food: "tag-food",
+      };
+      let cart = 0;
+
+      function renderMenu(cat) {
+        const grid = document.getElementById("menuGrid");
+        const filtered =
+          cat === "semua" ? menuItems : menuItems.filter((i) => i.cat === cat);
+        grid.innerHTML = filtered
+          .map(
+            (item, idx) => `
+      <div class="menu-card" style="animation:fadeUp 0.5s ${idx * 0.07}s ease both;">
+        <div class="menu-card-img" style="background:${item.bg};">
+          <div class="bg-circle" style="background:${item.bg};filter:brightness(0.9);"></div>
+          <span style="position:relative;z-index:1;">${item.icon}</span>
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-tag ${tagMap[item.tag]}">${item.tagLabel}</span>
+          <div class="menu-card-name">${item.name}</div>
+          <div class="menu-card-desc">${item.desc}</div>
+          <div class="menu-card-footer">
+            <span class="menu-price">${item.price}</span>
+            <button class="add-btn" onclick="addToCart(this)" title="Tambah ke keranjang">+</button>
+          </div>
+        </div>
+      </div>
+    `,
+          )
+          .join("");
+      }
+
+      renderMenu("semua");
+
+      document.getElementById("menuTabs").addEventListener("click", (e) => {
+        if (e.target.classList.contains("tab-btn")) {
+          document
+            .querySelectorAll(".tab-btn")
+            .forEach((b) => b.classList.remove("active"));
+          e.target.classList.add("active");
+          renderMenu(e.target.dataset.cat);
+        }
+      });
+
+      function addToCart(btn) {
+        cart++;
+        const badge = document.getElementById("cartBadge");
+        badge.textContent = cart;
+        badge.classList.add("show");
+        btn.style.transform = "scale(1.4)";
+        btn.textContent = "✓";
+        btn.style.background = "var(--green-mid)";
+        setTimeout(() => {
+          btn.style.transform = "";
+          btn.textContent = "+";
+          btn.style.background = "";
+        }, 800);
+        showToast("🛒 Ditambahkan ke keranjang!");
+      }
+
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 2800);
+      }
+
+      function subscribeNewsletter() {
+        const inp = document.getElementById("emailInput");
+        if (inp.value && inp.value.includes("@")) {
+          showToast("✅ Berhasil didaftarkan! Cek emailmu.");
+          inp.value = "";
+        } else {
+          showToast("⚠️ Masukkan alamat email yang valid.");
+        }
+      }
+
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      const reveals = document.querySelectorAll(".reveal");
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("visible"), i * 80);
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      reveals.forEach((r) => obs.observe(r));
+
+      document.getElementById("hamburger").addEventListener("click", () => {
+        const nav = document.getElementById("navLinks");
+        nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+        nav.style.flexDirection = "column";
+        nav.style.position = "absolute";
+        nav.style.top = "72px";
+        nav.style.left = "0";
+        nav.style.right = "0";
+        nav.style.background = "var(--green-deep)";
+        nav.style.padding = "1.5rem 2rem";
+        nav.style.gap = "1.25rem";
+      });
+
+      document.getElementById("cartBtn").addEventListener("click", () => {
+        if (cart > 0) {
+          showToast(`🛒 ${cart} item di keranjangmu. Checkout segera!`);
+        } else {
+          showToast("🛒 Keranjangmu masih kosong.");
+        }
+      });
+    </script>
+  </body>
+</html>
